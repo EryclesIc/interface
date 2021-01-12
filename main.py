@@ -1,8 +1,8 @@
 from tkinter import *
-from linkedlist import LinkedList
+from lista import *
+
 
 class App:
-
     def __init__(self):
         self.window = Tk()
         self.window.title("ESTRUTURA DE DADOS")
@@ -38,19 +38,20 @@ class App:
         if nome == "LISTA":
             self.new_label = Label(self.window1, text="DIGITE O ELEMENTO PARA A LISTA:").grid(row=0)
             dado = Entry(self.window1)
-            bt = Button(self.window1,text="OK" ,command=lambda: self.Onclick(dado)).grid(row=0, column=2)
-            dado.grid(row= 0, column= 1)
-
+            bt = Button(self.window1, text="OK", command=lambda: self.Onclick(dado)).grid(row=0, column=2)
+            dado.grid(row=0, column=1)
+            self.fechar = Button(self.window1, text="FECHAR", command=lambda: self.quit()).grid(row=1, column=1)
         self.window1.mainloop()
 
     def Onclick(self, dado):
         lista.append(dado.get())
-        print(lista)
-        print(lista.index(3))
+        dado.delete(0, END)
 
     def quit(self):
-        self.window.destroy()
+        self.window1.destroy()
 
 lista = LinkedList()
 App()
-
+print(lista)
+print(lista.index("1"))
+print('\n')
